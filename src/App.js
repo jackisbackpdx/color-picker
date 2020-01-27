@@ -2,16 +2,38 @@ import React from 'react';
 import './App.css';
 import './index.css';
 
-class ColorPicker extends React.Component {
+class SquaresWithValues extends React.Component {
   render() {
     return (
-      <ul>
-        <button className='red'>Red</button>
-        <button className='blue'>Blue</button>
-        <button className='yellow'>Yellow</button>
-      </ul>
+        <button 
+        className={this.props.value}
+        onClick={() => this.props.onClick}>
+        {this.props.value}
+        </button>
+    );
+  }      
+}
+
+class MakeSquares extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: null }
+  }
+
+  renderButton(i) {
+    return <SquaresWithValues value={i}    
+    />;
+  }
+
+  render() {
+    return (
+      <div className='container'>
+        {this.renderButton('blue')}
+        {this.renderButton('red')}
+        {this.renderButton('yellow')}
+      </div>
     );
   }
 }
 
-export default ColorPicker;
+export default MakeSquares;

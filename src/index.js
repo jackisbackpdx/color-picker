@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import ColorPicker from './App';
+import MakeSquares from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<ColorPicker/>, document.getElementById('main'));
+ReactDOM.render(<MakeSquares />, document.getElementById('main'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

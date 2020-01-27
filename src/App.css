@@ -1,3 +1,7 @@
+.container {
+  width: 300px;
+  display: flex;
+}
 
 button:focus {
   border: 1px solid blue;
