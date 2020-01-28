@@ -55,7 +55,7 @@ class MakeSquares extends React.Component {
   render() {
     return (
       <div id='outside'>
-      <div id='title'>COLOR PICKER</div>
+      <h1>REACT COLOR PICKER</h1>
       <div className='choices'>
         {this.renderButton(0)}
         {this.renderButton(1)}
