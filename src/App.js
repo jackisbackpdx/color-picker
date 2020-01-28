@@ -7,30 +7,62 @@ class SquaresWithValues extends React.Component {
     return (
         <button 
         className={this.props.value}
-        onClick={() => this.props.onClick}>
+        onClick={this.props.onClick}>
         {this.props.value}
         </button>
-    );
+      );
   }      
+}
+
+class ChangedColor extends React.Component {
+  render() {
+    return (
+      <div className={this.props.value}>
+
+      </div>
+    )
+  }
 }
 
 class MakeSquares extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: null }
+    this.state = { colors: [ 'blue', 'yellow', 'red', 'red' ] }
+    this.handleClick = this.handleClick.bind(this);
+  }
+  
+  handleClick(e) {
+    e.preventDefault();
+          let color = this.state.colors.slice();
+          color[3] = e.target.className;
+          this.setState({colors: color})
   }
 
+  changeColor() {
+
+  }
+  
+  renderColor(i) {
+    return <ChangedColor value={this.state.colors[i]}/>
+  }
+  
   renderButton(i) {
-    return <SquaresWithValues value={i}    
-    />;
+    return <SquaresWithValues value={this.state.colors[i]}
+            onClick={(e) => this.handleClick(e)}/>;
+            
   }
 
   render() {
     return (
-      <div className='container'>
-        {this.renderButton('blue')}
-        {this.renderButton('red')}
-        {this.renderButton('yellow')}
+      <div id='outside'>
+      <div className='choices'>
+        {this.renderButton(0)}
+        {this.renderButton(1)}
+        {this.renderButton(2)}
+      </div>
+      <div id='changed'>
+        {this.renderColor(3)}
+      </div>
       </div>
     );
   }
