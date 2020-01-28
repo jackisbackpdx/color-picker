@@ -17,7 +17,7 @@ class SquaresWithValues extends React.Component {
 class ChangedColor extends React.Component {
   render() {
     return (
-      <div className={this.props.value}>
+      <div className={this.props.value + '-changed'}>
 
       </div>
     )
@@ -55,6 +55,7 @@ class MakeSquares extends React.Component {
   render() {
     return (
       <div id='outside'>
+      <div id='title'>COLOR PICKER</div>
       <div className='choices'>
         {this.renderButton(0)}
         {this.renderButton(1)}
